@@ -1,6 +1,6 @@
 # CmpDeepDive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0-next.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0-next.2. It is a mock application worked on in unit 6 of this Udemy course: [Angular - The Complete Guide (2025 Edition)](https://www.infinitecourses.org/course/udemy-angular-the-complete-guide)
 
 ## Development server
 
