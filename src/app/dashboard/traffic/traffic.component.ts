@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './traffic.component.css'
 })
 export class TrafficComponent {
-dummyTrafficData = [
+  dummyTrafficData = [
     {
       id: 'd1',
       value: 433,
