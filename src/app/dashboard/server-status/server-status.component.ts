@@ -11,10 +11,13 @@ import { Component } from '@angular/core';
 export class ServerStatusComponent {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
-  constructor() {
+  constructor() {}
+  
+  ngOnInit() {
+    // Initial status check can be placed here if needed
     setInterval(() => {
       const rndm = Math.random(); // 0 - 1
-
+  
       if (rndm < 0.5) {
         this.currentStatus = 'online';
       } else if (rndm < 0.9) {
