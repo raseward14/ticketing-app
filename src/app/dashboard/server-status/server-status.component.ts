@@ -13,7 +13,7 @@ export class ServerStatusComponent implements OnInit {
 
   constructor() {}
   
-  ngonInit() {
+  ngOnInit() {
     // Initial status check can be placed here if needed
     setInterval(() => {
       const rndm = Math.random(); // 0 - 1
