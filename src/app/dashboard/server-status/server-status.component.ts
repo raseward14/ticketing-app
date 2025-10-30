@@ -10,13 +10,14 @@ import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
+  private interval?: ReturnType<typeof setInterval>; 
 
   constructor() {}
   
   ngOnInit() {
     console.log('ON INIT');
     // Initial status check can be placed here if needed
-    setInterval(() => {
+    this.interval = setInterval(() => {
       const rndm = Math.random(); // 0 - 1
   
       if (rndm < 0.5) {
@@ -34,7 +35,7 @@ export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.currentStatus = 'offline';
+    clearTimeout(this.interval);
     console.log('ON DESTROY');
   }
 }
