@@ -18,7 +18,7 @@ export class ServerStatusComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     console.log('ON INIT');
     // Initial status check can be placed here if needed
-    setInterval(() => {
+    const interval = setInterval(() => {
       const rndm = Math.random(); // 0 - 1
   
       if (rndm < 0.5) {
@@ -28,7 +28,12 @@ export class ServerStatusComponent implements OnInit, AfterViewInit {
       } else {
         this.currentStatus = 'unknown';
       };
-    }, 5000)
+    }, 5000);
+
+    this.destroyRef.onDestroy(() => {
+      clearInterval(interval);
+      console.log('Component destroyed, interval cleared');
+    });
   }
 
   ngAfterViewInit() {
