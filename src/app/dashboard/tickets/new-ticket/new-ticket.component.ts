@@ -12,8 +12,9 @@ import { ControlComponent } from '../../../shared/control/control.component';
   styleUrl: './new-ticket.component.css'
 })
 export class NewTicketComponent {
-  onSubmit(title: string, ticketText: string) {
+  onSubmit(title: string, ticketText: string, form: HTMLFormElement) {
     console.log('Entered Title:', title);
     console.log('Entered Request:', ticketText);
+    form.reset();
   }
 }
