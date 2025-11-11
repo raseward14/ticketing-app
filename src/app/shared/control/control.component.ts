@@ -9,7 +9,9 @@ import {
   ContentChild,
   contentChild ,
   AfterContentInit,
-  OnInit  
+  OnInit,
+  afterRender,
+  afterNextRender  
 } from '@angular/core';
 
 @Component({
@@ -34,6 +36,16 @@ export class ControlComponent implements AfterContentInit, OnInit {
 
   //@ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
   private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+  constructor() {
+    afterRender(() => {
+      console.log('afterRender:');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender:');
+    });
+  }
 
   ngOnInit() {
     console.log('OnInit:', this.control);
