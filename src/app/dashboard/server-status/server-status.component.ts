@@ -16,7 +16,6 @@ export class ServerStatusComponent implements OnInit, AfterViewInit {
     effect(() =>  {
       console.log(`Server status changed to: ${this.currentStatus()}`);
     })
-    console.log(this.currentStatus());
   }
   
   ngOnInit() {
