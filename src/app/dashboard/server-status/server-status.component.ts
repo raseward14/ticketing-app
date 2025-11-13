@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, DestroyRef, inject, signal } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, DestroyRef, inject, signal, effect } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -12,7 +12,12 @@ export class ServerStatusComponent implements OnInit, AfterViewInit {
   currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
   private destroyRef = inject(DestroyRef);
 
-  constructor() {}
+  constructor() {
+    effect(() =>  {
+      console.log(`Server status changed to: ${this.currentStatus()}`);
+    })
+    console.log(this.currentStatus());
+  }
   
   ngOnInit() {
     // Initial status check can be placed here if needed
