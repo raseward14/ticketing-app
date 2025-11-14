@@ -10,5 +10,5 @@ import { NewTicketComponent } from './new-ticket/new-ticket.component';
   styleUrl: './tickets.component.css'
 })
 export class TicketsComponent {
-
+  tickets: = [];
 }
