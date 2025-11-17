@@ -37,7 +37,9 @@ export class NewTicketComponent implements AfterViewInit, OnInit {
   onSubmit(title: string, requestText: string) {
     // console.log('Entered Title:', title);
     // console.log('Entered Request:', ticketText);
-    const ticket: Ticket = { title, requestText };
+    const id = Math.random().toString(36).substring(2, 9);
+    const status = 'open';
+    const ticket: Ticket = { id, title, requestText, status };
     this.addTicket?.emit(ticket);    
 
     this.form?.nativeElement.reset();

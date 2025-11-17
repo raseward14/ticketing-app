@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
+  @Input() id!: string;
   @Input() title!: string;
-  @Input() ticketText!: string; 
+  @Input() requestText!: string; 
+  @Input() status!: 'open' | 'closed';
 }
