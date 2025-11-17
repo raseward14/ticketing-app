@@ -1,7 +1,13 @@
 export type  Tickets = { 
+    id: string;
     title: string; 
-    ticketText: string }[];
+    requestText: string;
+    status: 'open' | 'closed'
+}[];
 
 export type Ticket = { 
+    id: string;
     title: string; 
-    ticketText: string };
+    requestText: string;
+    status: 'open' | 'closed'
+};
