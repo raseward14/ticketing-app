@@ -1,21 +1,30 @@
-import { Component, ViewChild, ElementRef, viewChild, AfterViewInit, OnInit } from '@angular/core';
+import { 
+  Component, 
+  ViewChild, 
+  ElementRef, 
+  viewChild, 
+  AfterViewInit, 
+  OnInit,
+  Output,
+  EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ControlComponent } from '../../../shared/control/control.component';
-import { TicketComponent } from '../ticket/ticket.component';
+
+import type { Ticket } from '../tickets.types'
 
 @Component({
   selector: 'app-new-ticket',
   standalone: true,
-  imports: [ButtonComponent, ControlComponent, FormsModule, TicketComponent],
+  imports: [ButtonComponent, ControlComponent, FormsModule],
   templateUrl: './new-ticket.component.html',
   styleUrl: './new-ticket.component.css'
 })
 export class NewTicketComponent implements AfterViewInit, OnInit {
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   // private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
-  tickets: { title: string; ticketText: string }[] = [];
+  @Output() addTicket = new EventEmitter<Ticket>();
 
   ngOnInit(): void {
     // console.log('OnInit', this.form?.nativeElement);
@@ -26,9 +35,10 @@ export class NewTicketComponent implements AfterViewInit, OnInit {
   }
 
   onSubmit(title: string, ticketText: string) {
-    console.log('Entered Title:', title);
-    console.log('Entered Request:', ticketText);
-    this.tickets.push({ title, ticketText });
+    // console.log('Entered Title:', title);
+    // console.log('Entered Request:', ticketText);
+    const ticket: Ticket = { title, ticketText };
+    this.addTicket?.emit(ticket);    
 
     this.form?.nativeElement.reset();
     // this.form().nativeElement.reset();

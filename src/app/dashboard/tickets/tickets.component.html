@@ -1,1 +1,10 @@
-<app-new-ticket />
+<app-new-ticket (addTicket)="onAddTicket($event)" />
+
+<div>
+    @for (ticket of tickets; track $index) {
+        <app-ticket 
+            [title]="ticket.title" 
+            [ticketText]="ticket.ticketText">
+        </app-ticket>
+    }
+</div>
