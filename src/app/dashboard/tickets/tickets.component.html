@@ -3,7 +3,7 @@
 <div>
     @for (ticket of tickets; track $index) {
         <app-ticket 
-            [id] = "ticket.id"
+            [id]="ticket.id"
             [title]="ticket.title" 
             [requestText]="ticket.requestText"
             [status]="ticket.status">
