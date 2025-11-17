@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NewTicketComponent } from './new-ticket/new-ticket.component';
 import { TicketComponent } from './ticket/ticket.component';
 
-import type { Tickets, Ticket } from './tickets.types';
+import type { Ticket } from './tickets.types';
 
 @Component({
   selector: 'app-tickets',
@@ -13,7 +13,7 @@ import type { Tickets, Ticket } from './tickets.types';
   styleUrl: './tickets.component.css'
 })
 export class TicketsComponent {
-    tickets: Tickets = [];
+    tickets: Ticket[] = [];
 
     onAddTicket(ticket: Ticket) {
       this.tickets.push(ticket);
