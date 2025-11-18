@@ -6,7 +6,8 @@ import {
   AfterViewInit, 
   OnInit,
   Output,
-  EventEmitter } from '@angular/core';
+  EventEmitter,
+  output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ButtonComponent } from "../../../shared/button/button.component";
@@ -24,7 +25,8 @@ import type { Ticket } from '../tickets.types'
 export class NewTicketComponent implements AfterViewInit, OnInit {
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   // private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
-  @Output() addTicket = new EventEmitter<Ticket>();
+  // @Output() addTicket = new EventEmitter<Ticket>();
+  addTicket = output<{ title: string, requestText: string }>();
 
   ngOnInit(): void {
     // console.log('OnInit', this.form?.nativeElement);
@@ -35,12 +37,7 @@ export class NewTicketComponent implements AfterViewInit, OnInit {
   }
 
   onSubmit(title: string, requestText: string) {
-    // console.log('Entered Title:', title);
-    // console.log('Entered Request:', ticketText);
-    const id = Math.random().toString(36).substring(2, 9);
-    const status = 'open';
-    const ticket: Ticket = { id, title, requestText, status };
-    this.addTicket?.emit(ticket);    
+    this.addTicket?.emit({ title: title, requestText: requestText });    
 
     this.form?.nativeElement.reset();
     // this.form().nativeElement.reset();
