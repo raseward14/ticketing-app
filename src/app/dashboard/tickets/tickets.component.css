@@ -26,6 +26,14 @@
   color: #38343c;
 }
 
+.yellow {
+  color: #edd925;
+}
+
+.grey {
+  color: grey;
+}
+
 @media (min-width: 768px) {
   :host {
     flex-direction: row;

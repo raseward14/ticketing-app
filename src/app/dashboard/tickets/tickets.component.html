@@ -3,11 +3,15 @@
         @for (ticket of tickets; track ticket.id) {
             <li>
                 <app-ticket 
+                    [class]="{
+                        yellow: $first,
+                        grey: $first === false
+                    }"
                     [id]="ticket.id"
                     [title]="ticket.title" 
                     [requestText]="ticket.requestText"
                     [status]="ticket.status">
-                </app-ticket> - {{$count}}
+                </app-ticket>
             </li>
         } @empty {
             <p>No tickets available.</p>
