@@ -1,12 +1,20 @@
-<app-new-ticket (addTicket)="onAddTicket($event)" />
-
 <div>
-    @for (ticket of tickets; track $index) {
-        <app-ticket 
-            [id]="ticket.id"
-            [title]="ticket.title" 
-            [requestText]="ticket.requestText"
-            [status]="ticket.status">
-        </app-ticket>
-    }
+    <ul>
+        @for (ticket of tickets; track ticket.id) {
+            <li>
+                <app-ticket 
+                    [id]="ticket.id"
+                    [title]="ticket.title" 
+                    [requestText]="ticket.requestText"
+                    [status]="ticket.status">
+                </app-ticket> - {{$count}}
+            </li>
+        } @empty {
+            <p>No tickets available.</p>
+        }
+    </ul>
+</div>
+
+<div id="new-ticket">
+    <app-new-ticket (addTicket)="onAddTicket($event)" />
 </div>

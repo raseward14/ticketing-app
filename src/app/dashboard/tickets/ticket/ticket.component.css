@@ -37,6 +37,7 @@ p {
   margin: 10;
   padding: 10;
   width: 15rem;
+  background-color: grey;
 }
 
 button:hover {
