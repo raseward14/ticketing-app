@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
+
+import type { Ticket } from '../tickets.types';
 
 @Component({
   selector: 'app-ticket',
@@ -8,8 +10,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
-  @Input() id!: string;
-  @Input() title!: string;
-  @Input() requestText!: string; 
-  @Input() status!: 'open' | 'closed';
+  data = input.required<Ticket>();
 }

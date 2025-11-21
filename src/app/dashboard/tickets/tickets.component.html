@@ -7,10 +7,7 @@
                         yellow: $first,
                         grey: $first === false
                     }"
-                    [id]="ticket.id"
-                    [title]="ticket.title" 
-                    [requestText]="ticket.requestText"
-                    [status]="ticket.status">
+                    [data]="ticket">
                 </app-ticket>
             </li>
         } @empty {
