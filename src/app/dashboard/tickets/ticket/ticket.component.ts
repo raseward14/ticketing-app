@@ -1,4 +1,4 @@
-import { Component, Input, input, signal, Output, EventEmitter } from '@angular/core';
+import { Component, Input, input, signal, Output, EventEmitter, output } from '@angular/core';
 
 import type { Ticket } from '../tickets.types';
 
@@ -13,10 +13,11 @@ export class TicketComponent {
   data = input.required<Ticket>();
   detailsVisible = signal(false);
 
-  @Output() close = new EventEmitter<string>();
+  close = output();
+  //@Output() close = new EventEmitter<string>();
 
-  closeTicket(): void {
-    this.close.emit(this.data().id);
+  onMarkAsCompleted() {
+    this.close.emit();
   }
 
   onToggleDetails(): void {

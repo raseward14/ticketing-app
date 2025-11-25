@@ -29,9 +29,8 @@ export class TicketsComponent {
       this.tickets = this.tickets.map((ticket) => {
         if (ticket.id === id) {
           return { ...ticket, status: 'closed' }; 
-        } else {
-          return ticket;
-        }
+        } 
+        return ticket;
       }) 
     }
 }

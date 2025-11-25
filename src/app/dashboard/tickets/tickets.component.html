@@ -4,11 +4,11 @@
             <li>
                 <app-ticket 
                     [class]="{
-                        yellow: $first,
-                        grey: $first === false
+                        'yellow': $first,
+                        'grey': $first === false
                     }"
                     [data]="ticket"
-                    (close)="onCloseTicket($event)">
+                    (close)="onCloseTicket(ticket.id)">
                 </app-ticket>
             </li>
         } @empty {
