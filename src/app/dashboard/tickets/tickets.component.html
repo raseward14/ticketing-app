@@ -8,8 +8,7 @@
                         'grey': $first === false
                     }"
                     [data]="ticket"
-                    (close)="onCloseTicket(ticket.id)">
-                </app-ticket>
+                    (close)="onCloseTicket(ticket.id)" />
             </li>
         } @empty {
             <p>No tickets available.</p>

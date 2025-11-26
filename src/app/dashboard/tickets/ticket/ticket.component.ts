@@ -14,7 +14,6 @@ export class TicketComponent {
   detailsVisible = signal(false);
 
   close = output();
-  //@Output() close = new EventEmitter<string>();
 
   onMarkAsCompleted() {
     this.close.emit();
